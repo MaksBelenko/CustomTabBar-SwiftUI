@@ -12,6 +12,7 @@ struct CustomTabViewApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            StandardTabView()
         }
     }
 }
