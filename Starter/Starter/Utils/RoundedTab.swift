@@ -24,9 +24,6 @@ struct RoundedTab: View {
                             .fill(.white.opacity(0.3))
                             .matchedGeometryEffect(id: "background_rect", in: namespace)
                             .frame(width: 50, height: 50)
-                            .onAppear {
-                                print(imageName)
-                            }
                     }
                 }
             )

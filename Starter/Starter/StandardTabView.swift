@@ -12,11 +12,12 @@ struct StandardTabView: View {
     
     var body: some View {
         TabView(selection: $selection) {
+            
             Color.red
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
-//                    Circle()  <- it won't show
+//                    Circle() //<- it won't show
 //                        .foregroundColor(.red)
 //                        .frame(width: 30, height: 30)
                 }

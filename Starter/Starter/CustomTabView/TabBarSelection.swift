@@ -7,14 +7,11 @@
 
 import SwiftUI
 
-struct TabBarSelection: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct TabBarSelection_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBarSelection()
+class TabBarSelection<SelectionValue>: ObservableObject where SelectionValue: Hashable {
+    
+    @Binding var selection: SelectionValue
+    
+    init(selection: Binding<SelectionValue>) {
+        self._selection = selection
     }
 }
