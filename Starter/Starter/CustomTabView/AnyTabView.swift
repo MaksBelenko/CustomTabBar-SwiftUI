@@ -1,8 +1,8 @@
 //
 //  AnyTabView.swift
-//  CustomTabView
+//  Starter
 //
-//  Created by Maksim on 01/03/2022.
+//  Created by Maksim on 06/03/2022.
 //
 
 import SwiftUI
