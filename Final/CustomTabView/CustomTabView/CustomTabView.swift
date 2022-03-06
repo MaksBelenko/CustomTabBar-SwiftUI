@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CustomTabView<SelectionValue, Content> : View where SelectionValue: Hashable, Content: View {
-
     
     @State private var tabs = [AnyTabView]()
     private let content: Content
@@ -19,7 +18,6 @@ struct CustomTabView<SelectionValue, Content> : View where SelectionValue: Hasha
         self.selectionObservable = TabBarSelection(selection: selection)
     }
 
-
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .bottom) {
@@ -27,7 +25,6 @@ struct CustomTabView<SelectionValue, Content> : View where SelectionValue: Hasha
                 
                 TabBar<SelectionValue>(tabViews: tabs)
             }
-            
         }
         .environmentObject(selectionObservable)
         .onPreferenceChange(TabBarItemsPreferenceKey.self) { value in
@@ -43,9 +40,3 @@ struct CustomTabView_Previews: PreviewProvider {
         }
     }
 }
-
-//extension CustomTabView where SelectionValue == Int {
-//    init(@ViewBuilder content: () -> Content) {
-//
-//    }
-//}

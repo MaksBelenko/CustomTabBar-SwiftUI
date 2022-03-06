@@ -9,13 +9,15 @@ import SwiftUI
 
 struct AnyTabView: View, Identifiable {
     
-    let id = UUID()
-    let view: AnyView
+    @Binding var selected: AnyHashable
+    let id: String
+    let view: (Bool) -> AnyView
     let tab: AnyHashable
  
     var body: some View {
-        view
+        view(selected == tab)
             .id(id)
+            
     }
 }
 

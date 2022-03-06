@@ -18,6 +18,8 @@
 		B5A73F3127CEC349002273DB /* TabBarItemViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A73F3027CEC349002273DB /* TabBarItemViewModifier.swift */; };
 		B5A73F3327CECA4D002273DB /* AnyTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A73F3227CECA4D002273DB /* AnyTabView.swift */; };
 		B5A73F3527CED8DF002273DB /* TabBarSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A73F3427CED8DF002273DB /* TabBarSelection.swift */; };
+		B5D561C027D3AA42006F00F2 /* RoundedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D561BF27D3AA42006F00F2 /* RoundedTab.swift */; };
+		B5D561C227D441F3006F00F2 /* Tabs+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D561C127D441F3006F00F2 /* Tabs+Modifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		B5A73F3027CEC349002273DB /* TabBarItemViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemViewModifier.swift; sourceTree = "<group>"; };
 		B5A73F3227CECA4D002273DB /* AnyTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTabView.swift; sourceTree = "<group>"; };
 		B5A73F3427CED8DF002273DB /* TabBarSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarSelection.swift; sourceTree = "<group>"; };
+		B5D561BF27D3AA42006F00F2 /* RoundedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTab.swift; sourceTree = "<group>"; };
+		B5D561C127D441F3006F00F2 /* Tabs+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tabs+Modifiers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			children = (
 				B5A73F1927CEB714002273DB /* CustomTabViewApp.swift */,
 				B5A73F1B27CEB714002273DB /* ContentView.swift */,
+				B5D561BF27D3AA42006F00F2 /* RoundedTab.swift */,
 				B5A73F2827CEB88D002273DB /* StandardTabView.swift */,
 				B5A73F2C27CEBF8D002273DB /* TabItem.swift */,
 				B5A73F2727CEB7FB002273DB /* CustomTabView */,
@@ -90,6 +95,7 @@
 				B5A73F2A27CEBD28002273DB /* CustomTabView.swift */,
 				B5A73F2E27CEC0D9002273DB /* TabBar.swift */,
 				B5A73F3027CEC349002273DB /* TabBarItemViewModifier.swift */,
+				B5D561C127D441F3006F00F2 /* Tabs+Modifiers.swift */,
 				B5A73F3427CED8DF002273DB /* TabBarSelection.swift */,
 				B5A73F3227CECA4D002273DB /* AnyTabView.swift */,
 			);
@@ -174,7 +180,9 @@
 				B5A73F2F27CEC0D9002273DB /* TabBar.swift in Sources */,
 				B5A73F3327CECA4D002273DB /* AnyTabView.swift in Sources */,
 				B5A73F2D27CEBF8D002273DB /* TabItem.swift in Sources */,
+				B5D561C227D441F3006F00F2 /* Tabs+Modifiers.swift in Sources */,
 				B5A73F2B27CEBD28002273DB /* CustomTabView.swift in Sources */,
+				B5D561C027D3AA42006F00F2 /* RoundedTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

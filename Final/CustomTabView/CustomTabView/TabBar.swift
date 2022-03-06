@@ -21,14 +21,16 @@ struct TabBar<Selection>: View where Selection: Hashable {
                         TapGesture()
                             .onEnded { _ in
                                 guard let tab = view.tab as? Selection else { return }
-                                selectionObject.selection = tab
+                                withAnimation() {
+                                    selectionObject.selection = tab
+                                }
                             }
                     )
             }
         }
         .background(
             RoundedRectangle(cornerRadius: 25)
-                .foregroundColor(.mint)
+                .foregroundColor(.black)
         )
         .offset(y: -10)
     }

@@ -17,10 +17,10 @@ struct TabBarItemsPreferenceKey: PreferenceKey {
     
 }
 
-struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Selection: Hashable, TabViewType: View{
+struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Selection: Tabable, TabViewType: View{
     
     let tab: Selection
-    let viewBuilder: () -> TabViewType
+    let viewBuilder: (Bool) -> TabViewType
     @EnvironmentObject private var selectionObject: TabBarSelection<Selection>
     
     func body(content: Content) -> some View {
@@ -28,7 +28,12 @@ struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Select
             .opacity(selectionObject.selection == tab ? 1 : 0)
             .preference(
                 key: TabBarItemsPreferenceKey.self,
-                value: [AnyTabView(view: AnyView(viewBuilder()), tab: tab)]
+                value: [AnyTabView(
+                    selected: Binding(selectionObject.$selection),
+                    id: tab.tabId,
+                    view: { AnyView(viewBuilder($0)) },
+                    tab: tab
+                )]
             )
     }
 }
@@ -36,8 +41,12 @@ struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Select
 
 extension View {
     
-    func tabBarItem<Selection: Hashable, Content: View>(tab: Selection, @ViewBuilder content: @escaping () -> Content) -> some View {
+    func tabBarItem<Selection: Tabable, Content: View>(tab: Selection, content: @escaping (Bool) -> Content) -> some View {
         modifier(TabBarItemViewModifier(tab: tab, viewBuilder: content))
+    }
+    
+    func tabBarItem<Selection: Tabable, Content: View>(tab: Selection, content: @escaping () -> Content) -> some View {
+        modifier(TabBarItemViewModifier(tab: tab, viewBuilder: { _ in content() }))
     }
     
 }
