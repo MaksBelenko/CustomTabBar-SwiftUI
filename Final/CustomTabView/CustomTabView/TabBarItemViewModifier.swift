@@ -17,10 +17,10 @@ struct TabBarItemsPreferenceKey: PreferenceKey {
     
 }
 
-struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Selection: Tabable, TabViewType: View{
+struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Selection: Hashable, TabViewType: View{
     
     let tab: Selection
-    let viewBuilder: (Bool) -> TabViewType
+    let tabView: TabViewType
     @EnvironmentObject private var selectionObject: TabBarSelection<Selection>
     
     func body(content: Content) -> some View {
@@ -29,9 +29,7 @@ struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Select
             .preference(
                 key: TabBarItemsPreferenceKey.self,
                 value: [AnyTabView(
-                    selected: Binding(selectionObject.$selection),
-                    id: tab.tabId,
-                    view: { AnyView(viewBuilder($0)) },
+                    view: AnyView(tabView),
                     tab: tab
                 )]
             )
@@ -41,12 +39,12 @@ struct TabBarItemViewModifier<Selection, TabViewType>: ViewModifier where Select
 
 extension View {
     
-    func tabBarItem<Selection: Tabable, Content: View>(tab: Selection, content: @escaping (Bool) -> Content) -> some View {
-        modifier(TabBarItemViewModifier(tab: tab, viewBuilder: content))
-    }
+//    func tabBarItem<Selection: Tabable, Content: View>(tab: Selection, content: @escaping (Bool) -> Content) -> some View {
+//        modifier(TabBarItemViewModifier(tab: tab, viewBuilder: content))
+//    }
     
-    func tabBarItem<Selection: Tabable, Content: View>(tab: Selection, content: @escaping () -> Content) -> some View {
-        modifier(TabBarItemViewModifier(tab: tab, viewBuilder: { _ in content() }))
+    func tabBarItem<Selection: Hashable, Content: View>(tab: Selection, content: @escaping () -> Content) -> some View {
+        modifier(TabBarItemViewModifier(tab: tab, tabView: content()))
     }
     
 }

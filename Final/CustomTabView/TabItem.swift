@@ -7,13 +7,7 @@
 
 import Foundation
 
-protocol Tabable: Hashable {
-    var tabId: String { get }
-}
-
-enum TabItem: String, Tabable {
-    var tabId: String { self.rawValue }
-    
+enum TabItem: Hashable {
     case home
     case profile
     case settings

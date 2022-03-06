@@ -14,13 +14,13 @@ struct TabBar<Selection>: View where Selection: Hashable {
     
     var body: some View {
         HStack {
-            ForEach(tabViews) { view in
-                view
+            ForEach(tabViews) { anyTab in
+                anyTab.view
                     .padding(20)
                     .simultaneousGesture(
                         TapGesture()
                             .onEnded { _ in
-                                guard let tab = view.tab as? Selection else { return }
+                                guard let tab = anyTab.tab as? Selection else { return }
                                 withAnimation() {
                                     selectionObject.selection = tab
                                 }

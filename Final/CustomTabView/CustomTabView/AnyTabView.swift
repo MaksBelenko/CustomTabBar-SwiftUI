@@ -7,18 +7,12 @@
 
 import SwiftUI
 
-struct AnyTabView: View, Identifiable {
+struct AnyTabView: Identifiable {
     
-    @Binding var selected: AnyHashable
-    let id: String
-    let view: (Bool) -> AnyView
+    var id: AnyHashable { tab }
+    let view: AnyView
     let tab: AnyHashable
  
-    var body: some View {
-        view(selected == tab)
-            .id(id)
-            
-    }
 }
 
 extension AnyTabView: Equatable {

@@ -43,24 +43,25 @@ struct ContentView: View {
     var body: some View {
         CustomTabView(selection: $selection) {
             Color.red
-                .tabBarItem(tab: TabItem.home) { selected in
-                    VStack {
-                        RoundedTab(imageName: "house", selected: selected, namespace: namespace)
+                .tabBarItem(tab: TabItem.home) {
+                    ZStack {
+                        RoundedTab(imageName: "house", selection: $selection, tab: .home, namespace: namespace)
                         
                         Circle()
                             .fill(.red)
                             .frame(width: 10, height: 10)
+                            .offset(x: 10, y: -10)
                     }
                 }
             
             Color.green
                 .tabBarItem(tab: TabItem.profile) {
-                    RoundedTab(imageName: "person", selected: $0, namespace: namespace)
+                    RoundedTab(imageName: "person", selection: $selection, tab: .profile, namespace: namespace)
                 }
             
             Color.blue
                 .tabBarItem(tab: TabItem.settings) {
-                    RoundedTab(imageName: "gear", selected: $0, namespace: namespace)
+                    RoundedTab(imageName: "gear", selection: $selection, tab: .settings, namespace: namespace)
                 }
         }
     }
