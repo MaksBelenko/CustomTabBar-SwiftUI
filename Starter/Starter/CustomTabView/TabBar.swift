@@ -67,5 +67,6 @@ struct TabBar: View {
 //
 //    static func tabView() -> some View {
 //        Image(systemName: "gear")
+//            .foregroundColor(.white)
 //    }
 //}

@@ -27,7 +27,6 @@ struct StandardTabView: View {
                     Image(systemName: "person")
                     Text("Profile")
                 }
-                .tag("Two")
             
             Color.blue
                 .tabItem {
